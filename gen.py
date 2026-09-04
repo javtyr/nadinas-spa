@@ -17,16 +17,6 @@ CATS = [
     ("rejuvenecimiento", "Rejuvenecimiento"),
 ]
 
-WA_SVG = ('<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 '
- '2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-'
- '5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.15a8.2 8.2 0 0 1-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 '
- '1-1.26-4.38c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23Zm'
- '4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.24-.64.8-.78.97-.14.16-.29.18-.54.06-.25-.12-1.05-'
- '.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.5.11-.11.25-.29.37-.43.13-.15.17-.25.25-.41.08-.17.04-'
- '.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.22.25-.85.83-.85 2.03s.87 '
- '2.35.99 2.51c.12.16 1.71 2.61 4.15 3.66.58.25 1.03.4 1.38.51.58.19 1.11.16 1.53.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-'
- '1.07.15-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>')
-
 SILUETA = '''<svg viewBox="0 0 260 600" role="img" aria-label="Silueta con las zonas de tratamiento">
             <defs>
               <clipPath id="cp-d"><ellipse cx="130" cy="42" rx="25" ry="30"/>
@@ -61,6 +51,39 @@ def cabeza(titulo, desc, base, extra_css=""):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..500&family=Jost:wght@300..600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="{base}assets/css/estilo.css">{extra_css}
+<script type="application/ld+json">
+{{
+  "@context": "https://schema.org",
+  "@type": "HealthAndBeautyBusiness",
+  "name": "Nadina's Spa",
+  "legalName": "NADINASSPA, C.A",
+  "taxID": "J-50699892-0",
+  "url": "https://www.nadinasspa.com/",
+  "telephone": "+584129395252",
+  "email": "contacto@nadinasspa.com",
+  "image": "https://www.nadinasspa.com/assets/img/hero-recepcion.webp",
+  "address": {{
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Macaracuay, C.C. Multicentro Macaracuay, Nivel 5, Oficina 5",
+    "addressLocality": "Caracas",
+    "addressRegion": "Miranda",
+    "postalCode": "1071",
+    "addressCountry": "VE"
+  }},
+  "geo": {{ "@type": "GeoCoordinates", "latitude": 10.4672212, "longitude": -66.8170936 }},
+  "hasMap": "https://maps.app.goo.gl/RpD2WbL8R8R6A8N59",
+  "sameAs": ["https://instagram.com/nadinasspa"],
+  "openingHoursSpecification": [
+    {{ "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+      "opens": "09:00", "closes": "18:00" }},
+    {{ "@type": "OpeningHoursSpecification",
+      "dayOfWeek": "Saturday", "opens": "10:00", "closes": "14:00" }}
+  ],
+  "priceRange": "$$"
+}}
+</script>
+
 </head>
 <body data-base="{base}">'''
 
@@ -89,13 +112,16 @@ def contacto(base):
     <p class="eyebrow">Reservar</p>
     <h2>Escríbenos y <em>te confirmamos</em> hoy.</h2>
     <p>Cuéntanos qué te interesa y te damos precios, disponibilidad y todo lo que necesites saber antes de venir.</p>
-    <a class="btn btn--b btn--lg js-wa" data-msg="Hola, quiero reservar una cita en Nadina's Spa." data-tok="PIE">Escribir por WhatsApp</a>
+    <a class="wa-marca js-wa" data-msg="Hola, quiero reservar una cita en Nadina's Spa." data-tok="PIE">
+      <img class="wa-marca__logo" src="{base}assets/logo/whatsapp.svg" alt="WhatsApp" width="38" height="38">
+      <span class="wa-marca__txt">Escríbenos</span>
+    </a>
 
     <div class="datos">
       <div>
         <span class="eyebrow">Dónde estamos</span>
-        <p>C.C. Multicentro Macaracuay<br>Urbanización Macaracuay, Caracas<br>
-        <span style="opacity:.6">Te enviamos la ubicación exacta al confirmar tu cita.</span></p>
+        <p>Av. Macaracuay, C.C. Multicentro Macaracuay<br>Nivel 5, Oficina 5<br>Urb. Macaracuay, Caracas, Miranda 1071<br>
+        <a href="https://maps.app.goo.gl/RpD2WbL8R8R6A8N59" target="_blank" rel="noopener">Cómo llegar</a></p>
       </div>
       <div>
         <span class="eyebrow">Horario</span>
@@ -103,19 +129,23 @@ def contacto(base):
       </div>
       <div>
         <span class="eyebrow">Contacto</span>
-        <p><a class="js-wa" data-msg="Hola, tengo una consulta." data-tok="TEL">+58 414 286 3713</a><br>
+        <p><a class="js-wa" data-msg="Hola, tengo una consulta." data-tok="TEL">+58 412 939 5252</a><br>
+        <a href="mailto:contacto@nadinasspa.com">contacto@nadinasspa.com</a><br>
         <a href="https://instagram.com/nadinasspa" target="_blank" rel="noopener">@nadinasspa</a></p>
       </div>
     </div>
 
     <div class="pie">
       <img src="{base}assets/logo/logotipo-oro.png" alt="Nadina's Spa">
-      <span>© <span id="anio"></span> Nadinas SPA · Caracas, Venezuela</span>
+      <span>© <span id="anio"></span> NADINASSPA, C.A · RIF J-50699892-0 · Caracas, Venezuela</span>
+      <a href="{base}privacidad/">Política de privacidad</a>
     </div>
   </div>
 </section>
 
-<a class="flota js-wa" data-msg="Hola, quiero reservar una cita en Nadina's Spa." data-tok="FLOT" aria-label="Escribir por WhatsApp">{WA_SVG}</a>
+<a class="flota js-wa" data-msg="Hola, quiero reservar una cita en Nadina's Spa." data-tok="FLOT" aria-label="Escríbenos por WhatsApp">
+  <img src="{base}assets/logo/whatsapp.svg" alt="WhatsApp" width="56" height="56">
+</a>
 
 <script src="{base}assets/js/datos.js"></script>
 <script src="{base}assets/js/comun.js"></script>'''
@@ -236,7 +266,7 @@ def portada():
       <p class="hero__p">Depilación láser con Alma Soprano Titanium, medicina estética y faciales. Un equipo corto que evalúa antes de tratar y te dice la verdad sobre lo que necesitas.</p>
       <div class="hero__cta">
         <a class="btn btn--lg" href="#servicios">Ver qué hacemos</a>
-        <a class="btn btn--g btn--lg js-wa" data-msg="Hola, quiero reservar una cita." data-tok="HERO">Escribir por WhatsApp</a>
+        <a class="btn btn--g btn--lg js-wa" data-msg="Hola, quiero reservar una cita." data-tok="HERO">Escríbenos</a>
       </div>
     </div>
     <div class="marco"><span>Aquí va el video del centro</span></div>
@@ -291,7 +321,25 @@ def portada():
   </div>
 </section>
 
-<section class="franja franja--papel">
+
+<section class="franja franja--papel" id="fundadora">
+  <div class="env duo">
+    <div>
+      <p class="eyebrow">Quién está detrás</p>
+      <h2>Nadina Lastra, fundadora.</h2>
+      <p>El centro lleva su segundo nombre, y eso no es casualidad: la persona que revisa tu piel es la misma que va a trabajarla, y la que te dice cuántas sesiones vas a necesitar de verdad.</p>
+      <p>Acá no hay un mostrador que vende y un fondo que ejecuta. Si un tratamiento no es para ti, te lo decimos antes de cobrarlo.</p>
+      <span class="firma-f">— texto pendiente de la sesión de fotos</span>
+    </div>
+    <div>
+      <div class="foto foto--v" id="foto-fundadora">
+        <div class="hueco"><span>Retrato de Nadina &middot; toma D1 del brief</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="franja">
   <div class="env duo duo--inv">
     <div>
       <div class="foto"><img data-medio="giftcards" alt="Gift Cards de Nadina's Spa" loading="lazy" width="900" height="675"></div>
@@ -610,10 +658,107 @@ def pagina_rejuvenecimiento():
 
 
 # ═══════════════════════════════════════════════════════════════════════════
+#  POLÍTICA DE PRIVACIDAD — exigida por Meta en el perfil de WhatsApp
+# ═══════════════════════════════════════════════════════════════════════════
+def pagina_privacidad():
+    b = "../"
+    cuerpo = '''
+<section class="franja" style="padding-top:clamp(24px,4vw,44px)">
+  <div class="env" style="max-width:760px">
+    <p class="eyebrow">Documento legal</p>
+    <h2 style="font-size:clamp(2rem,5vw,3.2rem);max-width:18ch">Política de privacidad</h2>
+    <p class="franja__sub">Última actualización: agosto de 2026.</p>
+
+    <div class="legal-doc">
+      <h3>Quiénes somos</h3>
+      <p>NADINASSPA, C.A, RIF J-50699892-0, con domicilio en Av. Macaracuay, C.C. Multicentro
+      Macaracuay, Nivel 5, Oficina 5, Urb. Macaracuay, Caracas, Miranda 1071, Venezuela.
+      Operamos bajo el nombre comercial Nadina&#39;s Spa.</p>
+      <p>Para cualquier asunto relacionado con esta política puedes escribirnos a
+      <strong>contacto@nadinasspa.com</strong> o por WhatsApp al +58 412 939 5252.</p>
+
+      <h3>Qué datos recogemos</h3>
+      <p><strong>Cuando nos escribes por WhatsApp:</strong> tu número de teléfono, tu nombre de
+      perfil y el contenido de los mensajes que nos envías. Estos datos los recibimos a través
+      de la plataforma de WhatsApp Business, propiedad de Meta.</p>
+      <p><strong>Cuando vienes al centro:</strong> tu nombre, cédula, teléfono, y la información
+      clínica y estética que sea necesaria para atenderte con seguridad: antecedentes,
+      alergias, medicación relevante, tratamientos realizados y sus resultados.</p>
+      <p><strong>Fotografías:</strong> solo tomamos y conservamos fotografías de tratamientos
+      cuando tú lo autorizas por escrito. Las fotografías que publicamos en la web o en redes
+      sociales requieren una autorización adicional y expresa, independiente de la anterior.</p>
+      <p><strong>En esta página web:</strong> no usamos cookies de seguimiento, no tenemos
+      publicidad, y no compartimos información con terceros con fines comerciales. Esta web es
+      un sitio estático: no recoge datos de navegación ni crea perfiles de visitantes.</p>
+
+      <h3>Para qué los usamos</h3>
+      <ul>
+        <li>Responder a tus consultas y agendar tus citas.</li>
+        <li>Llevar tu historial de tratamientos, para que quien te atienda sepa qué se te hizo antes.</li>
+        <li>Aplicar los tratamientos con seguridad, evitando lo que esté contraindicado en tu caso.</li>
+        <li>Enviarte recordatorios de tus citas y seguimiento de tratamientos en curso,
+        únicamente si has aceptado recibirlos.</li>
+        <li>Cumplir con nuestras obligaciones fiscales y contables.</li>
+      </ul>
+      <p>No vendemos, alquilamos ni cedemos tus datos a terceros con fines publicitarios.</p>
+
+      <h3>Mensajes por WhatsApp</h3>
+      <p>Te escribimos por WhatsApp cuando tú has iniciado la conversación, o cuando has
+      autorizado que te enviemos recordatorios. Puedes pedirnos que dejemos de escribirte en
+      cualquier momento, respondiendo al mismo chat. La baja es inmediata y definitiva hasta
+      que tú misma nos pidas lo contrario.</p>
+      <p>WhatsApp es un servicio de Meta Platforms. El tratamiento que Meta hace de tus datos
+      se rige por sus propias políticas, que no controlamos.</p>
+
+      <h3>Cuánto tiempo los conservamos</h3>
+      <p>La información clínica y de tratamientos se conserva mientras seas cliente y durante
+      el tiempo que exija la normativa aplicable. Las conversaciones de WhatsApp se conservan
+      el tiempo necesario para dar seguimiento a tu atención. Si nos pides que eliminemos tus
+      datos, lo hacemos salvo aquello que estemos obligados a conservar por ley.</p>
+
+      <h3>Con quién los compartimos</h3>
+      <p>Con los proveedores tecnológicos que hacen funcionar nuestro sistema de gestión y
+      nuestro canal de mensajería, que los tratan únicamente por cuenta nuestra y bajo
+      instrucciones nuestras. Con nuestros asesores contables, para el cumplimiento de
+      obligaciones fiscales. Y con las autoridades, cuando la ley lo requiera.</p>
+
+      <h3>Cómo los protegemos</h3>
+      <p>El acceso a tu información está restringido al personal que necesita consultarla para
+      atenderte. Los sistemas que la almacenan cuentan con control de acceso y cifrado en
+      tránsito. Ninguna medida es infalible, pero tratamos tu información clínica con el
+      cuidado que corresponde a un dato de salud.</p>
+
+      <h3>Tus derechos</h3>
+      <p>Puedes pedirnos en cualquier momento que te digamos qué datos tuyos tenemos, que los
+      corrijamos si están equivocados, que los eliminemos, o que dejemos de usarlos para
+      enviarte mensajes. Escríbenos a <strong>contacto@nadinasspa.com</strong> o por WhatsApp
+      al +58 412 939 5252, y lo resolvemos.</p>
+      <p>También puedes retirar en cualquier momento la autorización que hayas dado para
+      publicar tus fotografías. Si lo haces, las retiramos de la web y de nuestras redes.</p>
+
+      <h3>Menores de edad</h3>
+      <p>No atendemos a menores de edad sin la presencia y autorización de su representante
+      legal, ni recogemos sus datos por otra vía.</p>
+
+      <h3>Cambios en esta política</h3>
+      <p>Si cambiamos algo relevante, actualizamos la fecha del encabezado y publicamos la
+      nueva versión en esta misma dirección.</p>
+    </div>
+  </div>
+</section>
+'''
+    return (cabeza("Política de privacidad · Nadina\'s Spa",
+                   "Cómo trata NADINASSPA, C.A los datos personales de sus clientes.", b)
+    + nav(b) + '\n<main>\n<div class="env migas"><a href="' + b + 'index.html">Inicio</a> · Política de privacidad</div>\n'
+    + cuerpo + '</main>\n' + contacto(b) + "\n</body>\n</html>\n")
+
+
+# ═══════════════════════════════════════════════════════════════════════════
 if __name__ == "__main__":
     print(f'index.html                    {escribir("index.html", portada())//1024:3} KB')
     for slug, fn in [("laser",pagina_laser),("faciales",pagina_faciales),
                      ("corporales",pagina_corporales),("day-spa",pagina_dayspa),
-                     ("peeling",pagina_peeling),("rejuvenecimiento",pagina_rejuvenecimiento)]:
+                     ("peeling",pagina_peeling),("rejuvenecimiento",pagina_rejuvenecimiento),
+                     ("privacidad",pagina_privacidad)]:
         n = escribir(f"{slug}/index.html", fn())
         print(f'{slug}/index.html{" "*(20-len(slug))}{n//1024:3} KB')

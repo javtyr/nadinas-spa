@@ -54,6 +54,12 @@ const io = new IntersectionObserver(function(es){
 }, {threshold:.14});
 document.querySelectorAll(".rev").forEach(function(el){ io.observe(el); });
 
+(function retrato(){
+  const c = document.getElementById("foto-fundadora"); if (!c) return;
+  const f = (window.MEDIOS || {}).fundadora || {};
+  if (f.foto) c.innerHTML = '<img src="' + window.medio(f.foto) + '" alt="' + (f.alt||"") + '" loading="lazy">';
+})();
+
 const anio = document.getElementById("anio");
 if (anio) anio.textContent = new Date().getFullYear();
 })();

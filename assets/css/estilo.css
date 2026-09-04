@@ -128,6 +128,10 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.06;letter-spac
 .foto--v img{height:100%;object-fit:cover}
 .pie-foto{font-size:.74rem;color:var(--tinta-3);margin:8px 0 0;letter-spacing:.02em}
 
+.firma-f{font-family:var(--display);font-style:italic;font-size:1.08rem;color:var(--oro);margin-top:22px;display:block}
+.hueco{width:100%;height:100%;display:grid;place-items:center;text-align:center;padding:24px;background:var(--papel-2)}
+.hueco span{font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-3);max-width:20ch}
+
 /* lista de servicios sin precio */
 .servs{display:grid;gap:0;margin-top:8px}
 .serv{display:grid;grid-template-columns:auto minmax(0,1fr);gap:14px;padding:16px 0;border-top:1px solid var(--linea)}
@@ -217,10 +221,30 @@ h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.06;letter-spac
 .pie a{color:rgba(255,255,255,.55);text-decoration:none}
 .pie a:hover{color:var(--oro-vivo)}
 
-.flota{position:fixed;right:16px;bottom:16px;z-index:90;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;
-  background:var(--verde-hondo);color:#fff;box-shadow:0 8px 26px rgba(22,48,42,.3);text-decoration:none;transition:transform .2s}
-.flota:hover{transform:scale(1.08)}
-.flota svg{width:27px;height:27px}
+/* ---------- WhatsApp ----------
+   Normas de marca de Meta: el logo va suelto, sin recolorear, sin recortar y
+   con su espacio libre alrededor. Nunca dentro de un botón con texto, nunca
+   combinado con el logotipo de Nadina's. El texto va aparte. */
+.wa-marca{display:inline-flex;align-items:center;gap:14px;text-decoration:none}
+.wa-marca__logo{width:38px;height:38px;flex:none;padding:0;display:block}
+.wa-marca__txt{font-size:.9rem;color:var(--tinta);border-bottom:1px solid var(--linea);padding-bottom:2px;transition:border-color .2s}
+.wa-marca:hover .wa-marca__txt{border-color:var(--verde-hondo);color:var(--verde-hondo)}
+.res .wa-marca__txt{color:#fff;border-color:rgba(255,255,255,.3)}
+.res .wa-marca:hover .wa-marca__txt{color:var(--menta);border-color:var(--menta)}
+
+/* flotante: el logo solo, con su espacio libre. Sin círculo propio ni sombra de color */
+.flota{position:fixed;right:18px;bottom:18px;z-index:90;display:block;
+  width:56px;height:56px;padding:0;text-decoration:none;
+  filter:drop-shadow(0 6px 18px rgba(0,0,0,.28));transition:transform .2s}
+.flota:hover{transform:scale(1.07)}
+.flota img{width:100%;height:100%;display:block}
+
+.legal-doc h3{font-size:1.18rem;margin:34px 0 10px}
+.legal-doc h3:first-child{margin-top:8px}
+.legal-doc p{color:var(--tinta-2);margin:0 0 12px;font-size:.95rem}
+.legal-doc strong{color:var(--tinta);font-weight:500}
+.legal-doc ul{margin:0 0 14px;padding-left:20px;color:var(--tinta-2);font-size:.95rem}
+.legal-doc li{margin-bottom:6px}
 
 /* migas */
 .migas{padding:14px 0 0;font-size:.78rem;color:var(--tinta-3)}

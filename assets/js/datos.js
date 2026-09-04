@@ -12,7 +12,8 @@
 window.TENANT = {
   slug: "nadinas",
   nombre: "Nadina's Spa",
-  nombre_legal: "Nadinas SPA",
+  nombre_legal: "NADINASSPA, C.A",
+  rif: "J-50699892-0",
   actualizado: "2026-08-19",
 
   /* ---- configuración de presentación (por tenant) ---- */
@@ -21,10 +22,21 @@ window.TENANT = {
     monedas: ["usd","bs"],       // con una sola, el interruptor no se dibuja
     factor_eur: 1.40,            // solo se usa si mostrar_precios es true
     contacto: ["whatsapp"],      // whatsapp | webchat | instagram | telefono
-    whatsapp: "584142863713",
+    whatsapp: "584129395252",   // el numero que entra en Coexistence
     instagram: "nadinasspa",
-    direccion: ["C.C. Multicentro Macaracuay","Urbanización Macaracuay, Caracas"],
-    nota_direccion: "Te enviamos la ubicación exacta al confirmar tu cita.",
+
+    /* Correo del negocio. Va en la política de privacidad como vía formal para
+       ejercer derechos. Mientras esté vacío, la política ofrece solo WhatsApp.
+       Cuando exista el dominio: crear hola@nadinasspa.com y reenviarlo al Gmail,
+       para no publicar una dirección que después haya que cambiar. */
+    correo: "contacto@nadinasspa.com",
+
+    /* Ficha de Google Business, ya existente */
+    mapa: "https://maps.app.goo.gl/RpD2WbL8R8R6A8N59",
+    coordenadas: [10.4672212, -66.8170936],
+    direccion: ["Av. Macaracuay, C.C. Multicentro Macaracuay",
+                "Nivel 5, Oficina 5",
+                "Urb. Macaracuay, Caracas, Miranda 1071"],
     horario: ["Lunes a viernes · 9:00 – 18:00","Sábados · 10:00 – 14:00","Domingos cerrado"],
     equipo_estrella: "Alma Soprano Titanium",
 
@@ -152,6 +164,6 @@ window.TENANT = {
    --------------------------------------------------------------------------- */
 window.MEDIOS = {
   portada: { video:null, poster:null, foto:"hero-recepcion", alt:"Recepción de Nadina's Spa" },
-  fundadora: { foto:null, alt:"Fundadora de Nadina's Spa" },
+  fundadora: { foto:null, alt:"Nadina Lastra, fundadora de Nadina's Spa" },
   resultados: []   // cada entrada necesita antes y después para aparecer
 };
